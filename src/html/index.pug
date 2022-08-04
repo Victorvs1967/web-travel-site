@@ -1,0 +1,63 @@
+extends includes/_layout
+
+block title
+  title Home page - QWERy 
+
+block content 
+  section.section.section__main
+    .main-title 
+      .main-title__summary Explore the Nature Beauty
+      h1.main-title__text Discover 
+        span.main-title__text_regular Wondeful Indonesia 
+    .social-networks 
+      .social-networks__title Follow&nbsp;us
+      ul.social-networks__list 
+        li.social-networks__item 
+          a(href="#").social-networks__link 
+            +svg-icon('instagram', 'social-networks__icon')
+        li.social-networks__item 
+          a(href="#").social-networks__link
+            +svg-icon('twitter', 'social-networks__icon')
+        li.social-networks__item
+          a(href="#").social-networks__link 
+            +svg-icon('facebook', 'social-networks__icon')
+    .scroll-down 
+      | Scroll down
+      +svg-icon('arrow_downward', 'scroll-down__icon')
+  .content 
+    section.section.section-cols#info
+      img(src="@img/enjoy.jpg", alt="Enjoy").section-col.section-col__image
+      .section-col.section-col__content
+        .main__title.main-title__small
+          .main-title__summary EAST NUSA TENGGARA
+          h2.main-title__text Have you enjoeyd&nbsp;your holiday?
+        p You will be&nbsp;amazed if&nbsp;you take part in&nbsp;this sailing Komodo island tour package. So&nbsp;it&nbsp;is&nbsp;also mandatory for you, besides enjoying Komodo tourism on&nbsp;Komodo Island, you also have to&nbsp;taste the marine tourism. The beautiful waters of&nbsp;Komodo will make you meet many travelers from other countries.
+        a(href="#").arrow-link read more
+          +svg-icon('arrow_rightward', 'arrow-link__icon')
+    section.section#about
+      #gallery.gallery
+        each slide in slides
+          .gallery__slide(style={'background-image': `url('${slide}')`})
+            .gallery__content
+              .content_small 
+                .main__title.main-title__small.main-title_centered
+                  .main-title__summary Bromo
+                  h2.main-title__text Steady your steps, we will climb together!
+                p Enjoying the vast expanse of&nbsp;the sea of ​​​​sand, witnessing the splendor of&nbsp;Mount Semeru that soars into the sky, and gazing at&nbsp;the beauty of&nbsp;the sun moving out of&nbsp;its bed or&nbsp;otherwise enjoying the dim twilight from the Bromo ridge is&nbsp;an&nbsp;unforgettable experience when visiting Bromo.
+                a(href="#").arrow-link.arrow-link_centered read more
+                  +svg-icon('arrow_rightward', 'arrow-link__icon')
+    section.section.section-cols#culture
+      .section-col.section-col__content
+        .main__title.main-title__small
+          .main-title__summary INDONESIAN CULTURE
+          h2.main-title__text Our culture here is very friendly to people
+        p known for his politeness, manners and gentleness. This becomes a&nbsp;characteristic when they mingle with other tribes and become basic traits that are passed down by&nbsp;their ancestors.
+        a(href="#").arrow-link read more
+          +svg-icon('arrow_rightward', 'arrow-link__icon')
+      img(src="@img/culture.jpg", alt="Culture").section-col.section-col__image
+    section.section-border 
+      .start 
+        h2.start__title QWERTy 
+        .start__content 
+          h4.start__desc Ready to explore?
+          button.button Get started

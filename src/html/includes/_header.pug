@@ -1,0 +1,17 @@
+.cover-space
+header.header
+  .header__content
+    a(href="/").logo 
+      h1.logo__title QWERy
+    nav.main-nav.header__center
+      ul.main-nav
+        ul.main-nav__list
+          li.main-nav__item
+            a(href="#info").main-nav__link.main-nav__link_active Information 
+          li.main-nav__item
+            a(href="#about").main-nav__link About&nbsp;us
+          li.main-nav__item
+            a(href="#culture").main-nav__link Culture
+    label.search
+      +svg-icon('search', 'search__icon')
+      input(type="text" placeholder="Search").search__form
