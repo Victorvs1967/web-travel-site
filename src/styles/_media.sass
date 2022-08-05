@@ -1,3 +1,55 @@
+@media (max-width: 1920px)
+  .burger-menu
+    &__content
+      display: grid
+      grid-template-columns: 1fr auto
+      align-items: center
+
+@media (max-width: 1790px)
+  .burger-menu
+    width: 60vw
+    position: fixed
+    top: 0
+    bottom: 0
+    right: 0
+    z-index: 999
+    background: $main-dark
+    display: block
+    transform: translate3D(60vw, 0, 0)
+    transition: .4s transform
+    &__content
+      height: 100vh
+      padding: 2rem 0 2rem
+      display: grid
+      grid-template-columns: 1fr
+      grid-template-rows: 1fr auto
+    &__control
+      display: block
+    &__opened
+      transform: translate3D(0, 0, 0)
+      .burger-menu__control
+        left: 2.5rem
+  .main-nav
+    width: 100%
+    display: block
+    margin-bottom: 1rem
+    &__list
+      display: block
+      padding: 6rem 0 0
+    &__link
+      width: 100%
+      padding: 2rem 2rem
+      text-align: center
+      transition: .3s all ease-in-out
+      -webkit-transition: .3s all ease-in-out
+      &:hover,
+      &_active
+        color: $main-dark !important
+        background: $main-lite
+        opacity: .8
+  .search
+    margin: 0 0 3rem
+
 @media (max-width: 1440px)
   body
     font-size: 1rem
@@ -12,3 +64,5 @@
 @media (max-width: 1280px)
   .main-title
     font-size: 1.6rem
+
+@media (max-width: 960px)

@@ -29,7 +29,7 @@ body
   font-size: 1.8rem
   color: $main-lite
 // Main
-.cover-space
+.page
   padding-bottom: 82%
 .arrow-link
   display: flex
@@ -62,6 +62,7 @@ body
   &__center
     display: flex
     justify-content: center
+    align-items: center
   &__content
     display: grid
     grid-template-columns: auto 1fr auto
@@ -75,43 +76,44 @@ body
       &__title
         font-size: 2.4rem
         font-weight: 700
-    .main-nav
-      &__list
-        display: flex
-      &__link
-        padding: 3.2rem 2.4rem
-        font-size: 1.8rem
-        color: $main-lite
-        &:visited
-          color: $main-lite
-    .search
-      display: flex
-      justify-content: center
-      align-items: center
-      &__icon
-        width: 2.4rem
-        height: 2.4rem
-        cursor: pointer
-        padding-right: .5rem
-        fill: $main-lite
-      &__form
-        background: none
-        border: none
-        transition: width .4s
-        width: 8rem
-        font: 1.7rem/1 'Open Sans', sans-serif
-        padding: .5rem
-        border-radius: .5rem
-        &::placeholder
-          color: $main-lite
-          opacity: .8
-        &:focus
-          border: none
-          outline: none
-          width: 20rem
-          background: $main-lite
-          &::placeholder
-            color: $main-dark
+.main-nav
+  &__list
+    display: flex
+  &__link
+    display: inline-block
+    padding: 3.2rem 2.4rem
+    font-size: 1.8rem
+    color: $main-lite
+    &:visited
+      color: $main-lite
+.search
+  display: flex
+  justify-content: center
+  align-items: center
+  &__icon
+    width: 2.4rem
+    height: 2.4rem
+    cursor: pointer
+    padding-right: .5rem
+    fill: $main-lite
+  &__form
+    background: none
+    border: none
+    transition: width .4s
+    width: 8rem
+    font: 1.7rem/1 'Open Sans', sans-serif
+    padding: .5rem
+    border-radius: .5rem
+    &::placeholder
+      color: $main-lite
+      opacity: .8
+    &:focus
+      border: none
+      outline: none
+      width: 20rem
+      background: $main-lite
+      &::placeholder
+        color: $main-dark
 // Content
 .content
   padding: 0 $main-shift $main-shift
@@ -137,6 +139,7 @@ section
   left: $main-shift
   right: $main-shift
   top: 14vw
+  z-index: -1
 .main-title
   font-size: 1.8rem
   margin-bottom: 12.5rem
@@ -345,6 +348,71 @@ section
     color: $main-lite
     &:last-child
       margin-right: 0
-
+// Burger
+.burger-menu
+  display: none
+  position: relative
+  &__content
+    display: grid
+    grid-template-columns: 1fr auto
+  &__control
+    display: none
+    width: 3rem
+    height: 3rem
+    position: absolute
+    top: 3rem
+    left: calc(-6.5rem - 3rem)
+    background-color: transparent
+    border: none
+    cursor: pointer
+    .burger__item
+      position: relative
+      display: block
+      width: 100%
+      height: 3px
+      background-color: $main-lite
+      border-radius: 1rem
+      &::before,
+      &::after
+        content: ''
+        position: absolute
+        left: 0
+        width: 100%
+        height: 3px
+        background-color: $main-lite
+        border-radius: 1rem
+      &::before
+        bottom: 9px
+      &::after
+        top: 9px
+    .close__item
+      position: relative
+      display: none
+      &::before,
+      &::after
+        content: ''
+        width: 100%
+        position: absolute
+        top: 50%
+        left: 0
+        height: 3px
+        background-color: $main-lite
+        border-radius: 1rem
+      &::before
+        transform: rotate(45deg)
+      &::after
+        transform: rotate(-45deg)
+.body-burger_opened
+  overflow: hidden
+  .space-cover
+    opacity: 1
+    position: fixed
+    z-index: 998
+    top: 0
+    bottom: 0
+    right: 0
+    left: 0
+    background: rgba(0, 0, 0, .5)
+    transition: .4s ease-in-out background
 
 @import 'media'
