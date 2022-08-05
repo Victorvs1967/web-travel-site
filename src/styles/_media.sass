@@ -6,6 +6,23 @@
       align-items: center
 
 @media (max-width: 1790px)
+
+@media (max-width: 1440px)
+  body
+    font-size: 1rem
+  .section-col 
+    &__image
+      width: 44%
+    &__content
+      width: 50%
+  .content
+    max-width: 1200px
+
+@media (max-width: 1280px)
+  .main-title
+    font-size: 1.6rem
+
+@media (max-width: 960px)
   .burger-menu
     width: 60vw
     position: fixed
@@ -17,6 +34,7 @@
     display: block
     transform: translate3D(60vw, 0, 0)
     transition: .4s transform
+    -webkit-transition: .4s transform
     &__content
       height: 100vh
       padding: 2rem 0 2rem
@@ -26,9 +44,22 @@
     &__control
       display: block
     &__opened
-      transform: translate3D(0, 0, 0)
-      .burger-menu__control
-        left: 2.5rem
+      overflow: hidden
+      .space-cover
+        opacity: 1
+        position: fixed
+        z-index: 998
+        top: 0
+        bottom: 0
+        right: 0
+        left: 0
+        background: rgba(0, 0, 0, .6)
+        transition: .4s ease-in-out background
+        -webkit-transition: .4s ease-in-out background
+      .burger-menu
+        transform: translate3D(0, 0, 0)
+        .burger-menu__control
+          left: 2.5rem
   .main-nav
     width: 100%
     display: block
@@ -49,20 +80,3 @@
         opacity: .8
   .search
     margin: 0 0 3rem
-
-@media (max-width: 1440px)
-  body
-    font-size: 1rem
-  .section-col 
-    &__image
-      width: 44%
-    &__content
-      width: 50%
-  .content
-    max-width: 1200px
-
-@media (max-width: 1280px)
-  .main-title
-    font-size: 1.6rem
-
-@media (max-width: 960px)

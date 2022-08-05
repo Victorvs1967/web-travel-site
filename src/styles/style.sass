@@ -350,7 +350,7 @@ section
       margin-right: 0
 // Burger
 .burger-menu
-  display: none
+  display: grid
   position: relative
   &__content
     display: grid
@@ -398,21 +398,11 @@ section
         height: 3px
         background-color: $main-lite
         border-radius: 1rem
+        transition: .4s transform
+        -webkit-transition: .4s transform
       &::before
         transform: rotate(45deg)
       &::after
         transform: rotate(-45deg)
-.body-burger_opened
-  overflow: hidden
-  .space-cover
-    opacity: 1
-    position: fixed
-    z-index: 998
-    top: 0
-    bottom: 0
-    right: 0
-    left: 0
-    background: rgba(0, 0, 0, .5)
-    transition: .4s ease-in-out background
 
 @import 'media'

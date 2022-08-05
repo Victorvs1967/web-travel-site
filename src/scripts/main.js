@@ -25,26 +25,23 @@ const body = document.querySelector('body'),
       close = document.querySelector('.close__item'),
       links = document.querySelectorAll('.main-nav__link'),
       
-      BODY_BURGER_OPENED = 'body-burger_opened',
       MENU_OPENED_CLASS = 'burger-menu__opened';
 
 const openMenu = () => {
-  body.classList.add(BODY_BURGER_OPENED);
-  menu.classList.add(MENU_OPENED_CLASS);
+  body.classList.add(MENU_OPENED_CLASS);
   burger.style.display = 'none';
   close.style.display = 'block';
 };
 
 const closeMenu = () => {
-  body.classList.remove(BODY_BURGER_OPENED);
-  menu.classList.remove(MENU_OPENED_CLASS);
+  body.classList.remove(MENU_OPENED_CLASS);
   burger.style.display = 'block';
   close.style.display = 'none';
 };
 
 const burgerMenu = () => {
   cover.addEventListener('click', () => closeMenu());
-  control.addEventListener('click', () => menu.classList.contains(MENU_OPENED_CLASS) ? closeMenu() : openMenu());
+  control.addEventListener('click', () => body.classList.contains(MENU_OPENED_CLASS) ? closeMenu() : openMenu());
   links.forEach(link => link.addEventListener('click', () => closeMenu()));
 };
 
