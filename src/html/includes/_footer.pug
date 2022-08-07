@@ -6,14 +6,14 @@ footer.content.footer
         input(type="text" placeholder="Email address").email__form
         button(type="submit").button.email__button
           +svg-icon('arrow_right', 'button__icon')
-    .menu 
-      each item in footer_items
+    each item in footer_items
+      .menu
         .menu__col
           h4.menu__title= item.title 
           ul.menu__list 
             each link in item.links
               li.menu__item 
-                a(href="#").menu__link= link 
+                a(href="#").menu__link= link
   .footer__bottom 
     .footer__terms 
       a(href="#").footer__link Terms &amp;&nbsp;Conditions

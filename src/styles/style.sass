@@ -8,11 +8,15 @@
   box-sizing: border-box
 ul, li
   list-style: none
+  margin: 0
+  padding: 0
 a
+  display: inline-block
   text-decoration: none
   color: $main-highlite
   transition: opacity .3s
   opacity: 1
+  cursor: pointer
   // &:visited
   //   color: darken($main-highlite, 30)
   &:hover,
@@ -24,13 +28,15 @@ html
   font-size: 10px
 body
   height: 100vh
-  background: $main-dark url('@img/cover.jpg') no-repeat center top
-  background-size: 100% auto
   font-size: 1.8rem
   color: $main-lite
+  overflow-x: hidden
 // Main
 .page
-  padding-bottom: 82%
+  overflow-x: hidden
+  padding-top: 82%
+  background: $main-dark url('@img/cover.jpg') no-repeat center top
+  background-size: 100% auto
 .arrow-link
   display: flex
   align-items: center
@@ -47,6 +53,8 @@ body
 .button
   border: none
   background: $main-buttons
+  color: $main-dark
+  transition: .3s background
   font: 700 1.7rem/1 'Open Sans', sans-serif
   padding: 1.2em 3em 1.1em
   border-radius: $border-radius
@@ -56,9 +64,10 @@ body
     background: $main-highlite
 // Header
 .header
-  position: absolute
+  position: fixed
   top: 3rem
   width: 100%
+  z-index: 999
   &__center
     display: flex
     justify-content: center
@@ -81,7 +90,7 @@ body
     display: flex
   &__link
     display: inline-block
-    padding: 3.2rem 2.4rem
+    padding: 0 2.4rem
     font-size: 1.8rem
     color: $main-lite
     &:visited
@@ -114,21 +123,6 @@ body
       background: $main-lite
       &::placeholder
         color: $main-dark
-// Content
-.content
-  padding: 0 $main-shift $main-shift
-  max-width: 1460px
-  margin: 0 auto
-  p
-    margin-bottom: 2.7rem
-    font-size: 1.8rem
-    line-height: 1.8
-  &_small
-    max-width: 934px
-    margin: 0 auto
-    padding: 4em
-    p
-      text-align: center
 section
   margin-bottom: 25rem
 .section__main
@@ -139,7 +133,43 @@ section
   left: $main-shift
   right: $main-shift
   top: 14vw
-  z-index: -1
+  .scroll-down
+    font-size: 1.8rem
+    display: flex
+    align-items: center
+    cursor: pointer
+    opacity: 1
+    transition: .4s
+    &:hover
+      opacity: .7
+    &__icon
+      width: 1.6rem
+      height: 2.4rem
+      margin: 0.2rem 0 0 1rem
+      object-fit: contain
+      fill: $main-lite
+.social-networks
+  position: absolute
+  left: 0
+  top: 4rem
+  &__title
+    font-size: 1.8rem
+    font-weight: 200
+    writing-mode: vertical-lr
+    margin-bottom: 2rem
+  &__item
+    margin-bottom: 1.5rem
+  &__link
+    display: inline-block
+    cursor: pointer
+    &:hover
+      opacity: .7
+    .social-networks__icon
+      width: 2.2rem
+      height: 2.2rem
+      object-fit: contain
+      fill: $main-lite
+// Main title
 .main-title
   font-size: 1.8rem
   margin-bottom: 12.5rem
@@ -189,40 +219,21 @@ section
         height: 2px
         margin-left: calc(1.5em - .36em)
         background: $main-highlite
-.social-networks
-  display: flex
-  flex-direction: column
-  align-items: center
-  position: absolute
-  left: 0
-  top: 4rem
-  &__title
+// Content
+.content
+  padding: 0 $main-shift $main-shift
+  max-width: 1460px
+  margin: 0 auto
+  p
+    margin-bottom: 2.7rem
     font-size: 1.8rem
-    font-weight: 200
-    writing-mode: vertical-lr
-    margin-bottom: 2rem
-  &__item
-    margin-bottom: 1.5rem
-  .social-networks__icon
-    width: 2.2rem
-    height: 2.2rem
-    object-fit: contain
-    fill: $main-lite
-.scroll-down
-  font-size: 1.8rem
-  display: flex
-  align-items: center
-  cursor: pointer
-  opacity: 1
-  transition: .4s
-  &:hover
-    opacity: .7
-  &__icon
-    width: 1.6rem
-    height: 2.4rem
-    margin: 0.2rem 0 0 1rem
-    object-fit: contain
-    fill: $main-lite
+    line-height: 1.8
+  &_small
+    max-width: 934px
+    margin: 0 auto
+    padding: 4em
+    p
+      text-align: center
 .section-cols
   display: flex
   justify-content: space-between
@@ -272,7 +283,7 @@ section
     justify-content: space-between
     margin-bottom: 10rem
     .subscribe
-      width: 40%
+      width: 30%
       &__title
         font-size: 3rem
         font-weight: 400
@@ -307,10 +318,6 @@ section
           width: 2.7rem
           height: 2.7rem
     .menu
-      width: 100%
-      padding: 0 0 0 20rem
-      display: flex
-      justify-content: space-between
       &__title
         color: $main-highlite
         font-size: 2rem
@@ -360,8 +367,8 @@ section
     width: 3rem
     height: 3rem
     position: absolute
-    top: 3rem
-    left: calc(-6.5rem - 3rem)
+    top: 2.5rem
+    left: calc(-7rem - 3rem)
     background-color: transparent
     border: none
     cursor: pointer

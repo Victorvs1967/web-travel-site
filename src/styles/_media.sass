@@ -18,13 +18,18 @@
   .content
     max-width: 1200px
 
-@media (max-width: 1280px)
-  .main-title
-    font-size: 1.6rem
+// @media (max-width: 1280px)
+//   .main-title
+//     font-size: 1.6rem
 
 @media (max-width: 960px)
+
+  @media (max-width: 768px)
+  .header
+    &__content
+      padding: 0 2rem
   .burger-menu
-    width: 60vw
+    width: 70vw
     position: fixed
     top: 0
     bottom: 0
@@ -32,19 +37,24 @@
     z-index: 999
     background: $main-dark
     display: block
-    transform: translate3D(60vw, 0, 0)
+    transform: translate3D(70vw, 0, 0)
+    -webkit-transform: translate3D(70vw, 0, 0)
     transition: .4s transform
     -webkit-transition: .4s transform
     &__content
       height: 100vh
-      padding: 2rem 0 2rem
       display: grid
       grid-template-columns: 1fr
       grid-template-rows: 1fr auto
     &__control
       display: block
+      left: calc(-3rem - 3rem)
     &__opened
       overflow: hidden
+      transform: translate3D(-70vw, 0, 0)
+      -webkit-transform: translate3D(-70vw, 0, 0)
+      .section__main
+        z-index: -1
       .space-cover
         opacity: 1
         position: fixed
@@ -57,26 +67,130 @@
         transition: .4s ease-in-out background
         -webkit-transition: .4s ease-in-out background
       .burger-menu
-        transform: translate3D(0, 0, 0)
-        .burger-menu__control
+        &__content
+          padding: 7rem 0 2rem
+        &__control
           left: 2.5rem
-  .main-nav
-    width: 100%
-    display: block
-    margin-bottom: 1rem
-    &__list
+        .main-nav
+          width: 100%
+          display: block
+          margin-bottom: auto
+          &__list
+            display: block
+          &__link
+            width: 100%
+            padding: 2rem 2rem
+            text-align: center
+            transition: .3s all ease-in-out
+            -webkit-transition: .3s all ease-in-out
+            &:hover,
+            &_active
+              color: $main-dark !important
+              background: $main-lite
+              opacity: .8
+        .search
+          margin: 0 0 3rem
+  .section
+    position: static
+    margin-bottom: 4rem
+    &__main
+      margin-bottom: 6rem
+      padding: 0 2rem
+    &-cols
+      flex-direction: column
+      .section-col
+        &:first-child,
+        &:last-child
+          width: 100%
+        &__image
+          order: 1
+          margin-bottom: 4rem
+        &__content
+          order: 2
+    &-border
+      .start
+        display: block
+        text-align: center
+        &__title
+          margin: 0
+        &__content
+          display: block
+          .button
+            width: 100%
+        &__desc
+          margin: 2rem 0
+  .content
+    padding: 0 1.5rem 1.5rem
+  .main-title
+    text-align: center
+    font-size: 1.6em
+    margin-bottom: 2em
+    &__text
+      font-size: 2.8em
+      line-height: 1.3
+    &__summary
       display: block
-      padding: 6rem 0 0
-    &__link
-      width: 100%
-      padding: 2rem 2rem
+      margin-bottom: 1em
+      letter-spacing: .15em
+      &:before
+        display: none
+    &__small
+      font-size: 1.6em
       text-align: center
-      transition: .3s all ease-in-out
-      -webkit-transition: .3s all ease-in-out
-      &:hover,
-      &_active
-        color: $main-dark !important
-        background: $main-lite
-        opacity: .8
-  .search
-    margin: 0 0 3rem
+      .main-title__text
+        font-size: 2.8em
+  .social-networks
+    position: static
+    display: flex
+    align-items: center
+    &__title
+      writing-mode: initial
+      margin-right: 1em
+    &__list
+      display: flex
+    &__link
+      padding: 0 1em
+  .gallery
+    &__slide
+      padding-bottom: 160%
+    &__content
+      top: 0
+      display: flex
+      align-items: center
+      background: rgba(0, 0, 0, 0.4)
+      .content_small
+        padding: 1.5rem
+        .main-title
+          &__summary
+            &::after
+              display: none
+          &__text
+            font-size: 2.5em
+            line-height: 1.6
+        p
+          font-size: 1.6rem
+          line-height: 1.6      
+  .footer
+    &__content
+      display: block
+      margin-bottom: 3rem
+      .subscribe
+        width: 100%
+        margin-bottom: 4rem
+      .menu
+        text-align: center
+        &__title
+          margin: 3rem 0 2rem
+        &__item
+          margin-bottom: 2rem
+    &__bottom
+      display: block
+      text-align: center
+      .social-horisontal
+        justify-content: center
+        &__item
+          margin: 0 1rem
+    &__terms
+      margin-bottom: 2rem
+    &__link
+      margin-right: 3rem

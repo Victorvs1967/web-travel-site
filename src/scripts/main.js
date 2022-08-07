@@ -19,7 +19,6 @@ const toggleMenu = item => {
 // Burger menu support
 const body = document.querySelector('body'), 
       cover = document.querySelector('.space-cover'), 
-      menu = document.querySelector('.burger-menu'), 
       control = document.querySelector('.burger-menu__control'),
       burger = document.querySelector('.burger__item'),
       close = document.querySelector('.close__item'),
