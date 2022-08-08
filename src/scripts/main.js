@@ -117,4 +117,5 @@ stickyHeader();
 window.addEventListener('scroll', () => stickyHeader());
 toggleMenu('.main-nav__link');
 burgerMenu();
+
 functions.isWebp();
