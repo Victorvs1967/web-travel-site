@@ -1,36 +1,49 @@
 @media (max-width: 1920px)
-  .burger-menu
-    &__content
-      display: grid
-      grid-template-columns: 1fr auto
-      align-items: center
 
 @media (max-width: 1790px)
 
 @media (max-width: 1440px)
   body
     font-size: 1rem
+  .header
+    padding: 0 8rem
+  .social-networks
+    left: 8rem
   .section-col 
     &__image
       width: 44%
     &__content
       width: 50%
-  .content
-    max-width: 1200px
+  // .content
+  //   max-width: 1200px
 
-// @media (max-width: 1280px)
-//   .main-title
-//     font-size: 1.6rem
+@media (max-width: 1280px)
+  .header
+    padding: 0 4rem
+  .social-networks
+    left: 4
 
 @media (max-width: 960px)
 
-  @media (max-width: 768px)
+@media (max-width: 768px)
+  .page
+    transition: .4s transform
+    -webkit-transition: .4s transform
+  .logo
+    transform: translate3D(0, 0, 0)
+    transition: .4s transform
+    -webkit-transform: translate3D(0, 0, 0)
+    -webkit-transition: .4s transform
   .header
+    margin-top: 2rem
+    padding: 0
+    &_scrolled
+      margin-top: 0
     &__content
-      padding: 0 2rem
+      padding: 2rem
   .burger-menu
-    width: 70vw
     position: fixed
+    width: 70vw
     top: 0
     bottom: 0
     right: 0
@@ -48,17 +61,19 @@
       grid-template-rows: 1fr auto
     &__control
       display: block
-      left: calc(-3rem - 3rem)
-    &__opened
+    &_opened
       overflow: hidden
-      transform: translate3D(-70vw, 0, 0)
-      -webkit-transform: translate3D(-70vw, 0, 0)
+      .page
+        transform: translate3d(-70vw, 0, 0)
+        -webkit-transform: translate3d(-70vw, 0, 0)
+      .logo
+        transform: translate3D(-70vw, 0, 0)
+        -webkit-transform: translate3D(-70vw, 0, 0)
       .section__main
         z-index: -1
       .space-cover
         opacity: 1
         position: fixed
-        z-index: 998
         top: 0
         bottom: 0
         right: 0
@@ -67,35 +82,40 @@
         transition: .4s ease-in-out background
         -webkit-transition: .4s ease-in-out background
       .burger-menu
+        transform: translate3D(0, 0, 0)
+        -webkit-transform: translate3D(0, 0, 0)
         &__content
-          padding: 7rem 0 2rem
+          padding: 2rem 0
         &__control
-          left: 2.5rem
-        .main-nav
-          width: 100%
-          display: block
-          margin-bottom: auto
-          &__list
-            display: block
-          &__link
-            width: 100%
-            padding: 2rem 2rem
-            text-align: center
-            transition: .3s all ease-in-out
-            -webkit-transition: .3s all ease-in-out
-            &:hover,
-            &_active
-              color: $main-dark !important
-              background: $main-lite
-              opacity: .8
-        .search
-          margin: 0 0 3rem
+          left: 6rem
+    .main-nav
+      width: 100%
+      display: block
+      margin-bottom: auto
+      &__list
+        display: block
+      &__link
+        width: 100%
+        padding: 2rem 2rem
+        text-align: center
+        transition: .3s all ease-in-out
+        -webkit-transition: .3s all ease-in-out
+        &:hover,
+        &_active
+          color: $main-dark !important
+          background: $main-lite
+          opacity: .8
+          &::after
+            display: none
+    .search
+      margin: 0 0 3rem
   .section
     position: static
     margin-bottom: 4rem
+    padding: 0 2rem
     &__main
       margin-bottom: 6rem
-      padding: 0 2rem
+      // padding: 0 2rem
     &-cols
       flex-direction: column
       .section-col
@@ -121,13 +141,17 @@
           margin: 2rem 0
   .content
     padding: 0 1.5rem 1.5rem
+    p
+      font-size: 1.6rem
+      line-height: 1.7
   .main-title
     text-align: center
     font-size: 1.6em
+    line-height: 1.6
     margin-bottom: 2em
     &__text
       font-size: 2.8em
-      line-height: 1.3
+      line-height: 1.2
     &__summary
       display: block
       margin-bottom: 1em
@@ -136,9 +160,11 @@
         display: none
     &__small
       font-size: 1.6em
+      line-height: 1.6
       text-align: center
       .main-title__text
         font-size: 2.8em
+        line-height: 1.2
   .social-networks
     position: static
     display: flex
@@ -152,7 +178,7 @@
       padding: 0 1em
   .gallery
     &__slide
-      padding-bottom: 160%
+      padding-bottom: 200%
     &__content
       top: 0
       display: flex
@@ -161,15 +187,16 @@
       .content_small
         padding: 1.5rem
         .main-title
+          font-size: 1.6em
+          line-height: 1.7
           &__summary
             &::after
               display: none
           &__text
-            font-size: 2.5em
-            line-height: 1.6
+            font-size: 2.8em
         p
           font-size: 1.6rem
-          line-height: 1.6      
+          line-height: 1.7
   .footer
     &__content
       display: block

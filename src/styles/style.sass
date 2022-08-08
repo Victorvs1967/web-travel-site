@@ -22,19 +22,24 @@ a
   &:hover,
   &:active
     opacity: .7
-html
+html,
+body
   scroll-behavior: smooth
   font-family: 'Open Sans', sans-serif
   font-size: 10px
 body
-  height: 100vh
+  background: $main-dark
+  width: 100vw
   font-size: 1.8rem
   color: $main-lite
-  overflow-x: hidden
 // Main
 .page
   overflow-x: hidden
   padding-top: 82%
+  position: absolute
+  top: 0
+  left: 0
+  right: 0
   background: $main-dark url('@img/cover.jpg') no-repeat center top
   background-size: 100% auto
 .arrow-link
@@ -62,12 +67,20 @@ body
   transition: .3s background
   &:hover
     background: $main-highlite
-// Header
+  // Header
 .header
-  position: fixed
-  top: 3rem
+  position: sticky
+  margin-top: 4rem
+  // position: fixed
   width: 100%
+  top: 0
   z-index: 999
+  transition: .4s background
+  -webkit-transition: .4s background
+  &_scrolled
+    position: fixed
+    margin-top: 0
+    background: rgba(0, 0, 0, 0.5)
   &__center
     display: flex
     justify-content: center
@@ -75,7 +88,8 @@ body
   &__content
     display: grid
     grid-template-columns: auto 1fr auto
-    padding: 0 $main-shift
+    // padding: 4rem $main-shift
+    padding: 3rem $main-shift
     align-items: center
     .logo
       letter-spacing: 0.01em
@@ -95,6 +109,16 @@ body
     color: $main-lite
     &:visited
       color: $main-lite
+    &_active
+      position: relative
+      &::after
+        content: ''
+        position: absolute
+        bottom: -6px
+        left: 2.4rem
+        right: 2.4rem 
+        height: 2px
+        background: $main-highlite
 .search
   display: flex
   justify-content: center
@@ -125,6 +149,7 @@ body
         color: $main-dark
 section
   margin-bottom: 25rem
+  padding: 4em
 .section__main
   display: flex
   align-items: center
@@ -132,7 +157,7 @@ section
   position: absolute
   left: $main-shift
   right: $main-shift
-  top: 14vw
+  top: 20vw
   .scroll-down
     font-size: 1.8rem
     display: flex
@@ -224,6 +249,7 @@ section
   padding: 0 $main-shift $main-shift
   max-width: 1460px
   margin: 0 auto
+  padding-top: 6rem
   p
     margin-bottom: 2.7rem
     font-size: 1.8rem
@@ -231,7 +257,6 @@ section
   &_small
     max-width: 934px
     margin: 0 auto
-    padding: 4em
     p
       text-align: center
 .section-cols
@@ -363,15 +388,16 @@ section
     display: grid
     grid-template-columns: 1fr auto
   &__control
-    display: none
     width: 3rem
     height: 3rem
+    display: none
     position: absolute
-    top: 2.5rem
-    left: calc(-7rem - 3rem)
+    top: 2.5vh
+    left: 87vw
     background-color: transparent
     border: none
     cursor: pointer
+    z-index: 999
     .burger__item
       position: relative
       display: block
